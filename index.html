@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PO Dashboard</title>
+   
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div class="dashboard-header">
+    <h1>PO Weekly Dashboard</h1>
+
+    <button id="refreshBtn" class="refresh-btn">
+        ↻
+    </button>
+</div>
+
+<div class="dashboard-status">
+   <h3 id="dashboardStatus"></h3>
+</div>
+<p id="lastUpdated"></p>
+</p>
+<div class="health-score">
+    <h2>📈 Portfolio Health Score</h2>
+    <p id="healthScore">--</p>
+    <p id="healthMessage"></p>
+</div>
+<div class="priority-alert">
+    <h2>🚨 Top Priority Account</h2>
+    <p id="priorityAccount">Awaiting Data...</p>
+</p>
+</div>
+<h2>Executive Summary</h2>
+<div class="summary-card">
+    <div id="executiveSummary"></div>
+</div>
+
+<div class="filters">
+<div class="dashboard">
+    <div class="container" id="dashboardContainer" style="display:none;"></div>
+
+    <div class="card active">
+        <h2>👥 Active Clients</h2>
+        <p id="activeCount">-</p>
+    </div>
+
+    <div class="card risk">
+        <h2>🔴 At Risk</h2>
+        <p id="riskCount">0</p>
+    </div>
+
+   <div class="card track">
+        <h2>🟢 On Track</h2>
+        <p id="trackCount">0</p>
+    </div>
+
+    <div class="card dragging">
+        <h2>🟠 Dragging</h2>
+        <p id="draggingCount">0</p>
+    </div>
+ <div class="card critical">
+        <h2>🚨 Critical</h2>
+        <p id="criticalCount">0</p>
+    </div>
+</div>
+
+<h2>Client Portfolio</h2>
+
+<input type="text" id="searchBox" placeholder="Search Client..." class="search-box">
+<div class="filters">
+<button id="allBtn">All</button>
+<button id="trackBtn">On Track</button>
+<button id="riskBtn">At Risk</button>
+<button id="dragBtn">Dragging</button>
+<button id="criticalBtn">Critical</button>
+</div>
+
+<div id="clientList"></div>
+
+<script src="script.js"></script>
+
