@@ -121,6 +121,8 @@ let riskCount = 0;
 let trackCount = 0;
 let draggingCount = 0;
 let criticalCount = 0;
+let totalGoal = 0;
+let totalActual = 0;
 
 const now = new Date();
 
@@ -143,8 +145,16 @@ document.getElementById("lastUpdated").innerText =
 
     rows.forEach(row => {
 
-        const [name, statusRaw] = row.split(",");
-        const status = statusRaw.trim();
+        const columns = row.split(",");
+
+const name = columns[0];
+const status = columns[1].trim();
+
+        const goal = Number(columns[2]) || 0;
+const actual = Number(columns[3]) || 0;
+
+totalGoal += goal;
+totalActual += actual;
         let currentPriority = 0;
 
 if (status === "Critical") {
@@ -220,6 +230,13 @@ document.getElementById("trackCount").textContent = trackCount;
 document.getElementById("draggingCount").textContent = draggingCount;
 
 document.getElementById("criticalCount").textContent = criticalCount;
+
+const goalAchievement =
+Math.round((totalActual / totalGoal) * 100);
+
+document.getElementById("goalAchievement").innerText =
+goalAchievement + "%";
+
 if (criticalCount > 0) {
 
     document.getElementById("priorityAccount").innerHTML =
@@ -281,7 +298,6 @@ else {
     healthCard.style.borderLeft = "8px solid #ef4444";
 
 }
-
 let summary = "";
 
 summary += `<p>
